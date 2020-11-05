@@ -1,5 +1,6 @@
+import SQLAlchemy as SQLAlchemy
 from flask import Flask, render_template, url_for, request
-from flask_sqlalchemy import SQLAlchemy
+
 from werkzeug.utils import redirect
 
 app = Flask(__name__, template_folder='templates')
