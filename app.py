@@ -1,6 +1,6 @@
-import SQLAlchemy as SQLAlchemy
-from flask import Flask, render_template, url_for, request
 
+from flask import Flask, render_template, url_for, request
+from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import redirect
 
 app = Flask(__name__, template_folder='templates')
@@ -24,14 +24,18 @@ class BancoLivro(db.Model):
 @app.route('/')
 def index():
     livros = BancoLivro.query.all()
-    return render_template('index.html', livros=livros)
+    return render_template("index.html", livros=livros)
 
 
+# Fazer o tratamento do erro neste código
 @app.route('/add', methods=['GET', 'POST'])
 def add():
     if request.method == 'POST':
+        # Usar aqui o try - except para tratar o erro, porque ele não esta
+        # retornando para a tela de cadastro quando tem usuários iguais
+        # cadastrados no banco
         adic_livro = BancoLivro(request.form['id'], request.form['livro'],
-                           request.form['autor'], request.form['lido'])
+                                request.form['autor'], request.form['lido'])
         db.session.add(adic_livro)
         #aqui salvamos no banco
         db.session.commit()
