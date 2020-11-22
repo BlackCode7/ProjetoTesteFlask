@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue do jeito Ninja</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ titulo }}</h1>
+        <!--Mostrando os usários somente se for necessário-->
+        <div v-if="usuario.id == 1">
+            Id: {{ usuario.id }}<br>
+            Nome: {{ usuario.nome }}<br>
+            Profissao: {{ usuario.profissao }}
+        </div>
+        <!--Negação usando o v-else, caso não encontre o usuário com id = 1
+         ele exibe a mensagem que não existe usuário-->
+        <div v-else>Nenhum usuário com id = 1 foi encontrado!</div>
+    </div>
+
+
+    <script src="https://unpkg.com/vue"></script>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                titulo: "Vue do jeito Certo",
+                usuario: {
+                    id: 1,
+                    nome: "John Snow",
+                    profissao: "Guarda da Noite",
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
