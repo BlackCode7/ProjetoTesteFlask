@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Vue do jeto certo</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ titulo }}</h1>
+        <ul>
+            <!--Percorrendo uma listagem com v-for-->
+            <li v-for="item in linguagens">{{ item.nome }}</li>
+            <br>
+            <!--colocando um indece na listagem de nomes -->
+            <li v-for="(item, index) in linguagens">{{ index }} - {{ item.nome }}</li>
+        </ul>
+    </div>
+
+
+    <script src="http://unpkg.com/vue"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                titulo: "Vue do jeito certo",
+                linguagens: [
+                    {nome: "JavaScript"},
+                    {nome: "Python"},
+                    {nome: "Django"},
+                    {nome: "Java"},
+                    {nome: "Flask"}
+                ]
+            },
+        });
+
+    </script>
+
+</body>
+</html>
