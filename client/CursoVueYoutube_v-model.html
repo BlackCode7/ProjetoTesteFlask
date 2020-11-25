@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Vue do jeto certo</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ titulo }}</h1>
+        <h3> Uso do v-model do vue.js </h3>
+        <!--Criando uma label nome-->
+        <label for="">Nome</label><br>
+        <!-- Atrelando a diretiva v-model a uma variável 'nome'-->
+        <input type="text" v-model="nomeVModel"><br>
+        <!-- Imprimindo a variável nome_v-model -->
+        {{ nomeVModel }}
+        <br>
+
+        <!--Criando uma label telefone-->
+        <label for="">Telefone</label><br>
+        <!--Criando um campo telefone-->
+        <input type="text" v-model="telefoneVModel"><br>
+        <!-- Imprimindo a variável v-model-->
+        {{ telefoneVModel }}
+        <br>
+
+        <!-- Criando uma label de novidades-->
+        <label for="">Deseja receber nossas novidades?</label>
+        <!-- Criando um campo input radio-->
+        <!-- Importante colocar o value, pq sem ele os campos não imprime os valores digitados nos campos -->
+        <input type="radio" value="Sim" v-model="novidadesVModel">Sim
+        <input type="radio" value="Não" v-model="novidadesVModel">Não
+        <br><br>
+
+        <!-- Criando uma label-->
+        <label for="">Interesses</label><br>
+        <!-- Criando uma tag input checkbox-->
+        <input type="checkbox" value="Programação" v-model="interesseVModel">Programação<br>
+        <input type="checkbox" value="Livros" v-model="interesseVModel">Livros<br>
+        <input type="checkbox" value="Musculação" v-model="interesseVModel">Musculação<br>
+        <br>
+
+        <!-- Criando uma label conheceu -->
+        <label for="">Como nos conheceu?</label><br>
+        <!-- Criando uma tag option-->
+        <select v-model="conheceuVModel">
+            <option value="">Escolha</option>
+            <option value="Google">Google</option>
+            <option value="TV">TV</option>
+            <option value="Revista">Revista</option>
+        </select>
+        <br><br>
+
+        <button>ENVIAR</button>
+
+        <hr>
+        <!--imprimindo variáveis-->
+        Nome: {{ nomeVModel }} <br>
+        Telefone: {{ telefoneVModel }} <br>
+        Novidades: {{ novidadesVModel }} <br>
+        Interesses: {{ interesseVModel }} <br>
+        Como Nos Conheceu? {{ conheceuVModel }} <br>
+
+        <br>
+        <h3> Percorrendo uma lista com v-for e usando indeces</h3>
+        <ul>
+            <!--Percorrendo uma listagem com v-for-->
+            <li v-for="item in linguagens">{{ item.nome }}</li>
+            <br>
+            <!--colocando um indece na listagem de nomes -->
+            <li v-for="(item, index) in linguagens">{{ index }} - {{ item.nome }}</li>
+        </ul>
+    </div>
+
+
+    <script src="http://unpkg.com/vue"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                titulo: "Vue do jeito certo",
+                nomeVModel:"",
+                telefoneVModel:"",
+                novidadesVModel:"",
+                interesseVModel:[],
+                conheceuVModel:"",
+
+                <!--Indece de nomes de linguagens de programação com a diretiva v-for-->
+                linguagens: [
+                    {nome: "JavaScript"},
+                    {nome: "Python"},
+                    {nome: "Django"},
+                    {nome: "Java"},
+                    {nome: "Flask"}
+                ]
+            },
+        });
+
+    </script>
+
+</body>
+</html>
