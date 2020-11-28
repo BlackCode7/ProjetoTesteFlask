@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Curso de Vue do geito Certo</title>
+    <!-- Criando estilo na página -->
+    <style media="screen">
+        .red {
+            color: red;
+        }
+        .green {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <!-- 1 - Esta diretiva (v-bind) atribui valores as tags html -->
+    <!-- Preciso colocar uma imagem la dentro do parametro data da tag script do vue
+         geralmente esse tipo de imagem vem de uma API ou outro site qualquer-->
+    <div id="app">
+        <h1>{{ titulo }}</h1>
+        <!-- variavel imagem -->
+        <!-- Dando um bind na tag src e alt -->
+        <!-- Podemos usar o v-bind com qualquer tag html (class, img, section, id) -->
+        <!-- S[o não podemos esquecer a notação do v-bind, v-bind:img="" -->
+        <img v-bind:src="imagem"
+             v-bind:alt="alt">
+        <p v-bind:class="classHtml">The optimizer uses a loss function to evaluate the accuracy of the
+            predicted values. In regression problems, this loss function can be
+            RMSE. However, in classification problems, a relatively complex loss
+            function may be required</p>
+
+    </div>
+
+    <!-- Instalando o Vue na página html -->
+    <script src="http://unpkg.com/vue">
+    </script>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                titulo: "Usando a diretiva v-bind do Vue para qualquer tag html",
+                imagem: "https://scontent.fsdu12-1.fna.fbcdn.net/v/t1.0-9/87373737_2983479105036530_4787621330709118976_n.jpg?_nc_cat=101&ccb=2&_nc_sid=730e14&_nc_ohc=3jHn9antsTkAX816o9V&_nc_ht=scontent.fsdu12-1.fna&oh=6340f1eaea261a6e403fe0dae89c6b00&oe=5FE61FAA",
+                alt: "Vuejs is awesome",
+                classHtml: "green"
+            },
+        })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<!-- Usando classes do bootstrap -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Curso de Vue do geito Certo</title>
+    <link rel="stylesheet" href="https://getbootstrap.com/1.4.0/assets/css/bootstrap.min.css">
+    <!-- Criando estilo na página -->
+    <style media="screen">
+        .red {color: red;}
+        .green {color: green;}
+    </style>
+</head>
+<body>
+    <!-- 1 - Esta diretiva (v-bind) atribui valores as tags html -->
+    <!-- Preciso colocar uma imagem la dentro do parametro data da tag script do vue
+         geralmente esse tipo de imagem vem de uma API ou outro site qualquer-->
+    <div id="app">
+        <!-- Usando a bootstrap com bind do vuejs -->
+        <h1>{{ titulo2 }}</h1>
+        <!-- Aplicando estilo a folha html com v-bind:style=""-->
+        <button class="btn" v-bind:class="btnClassLimpar" v-bind:style="btnStyleLimpar">LIMPAR</button>
+        <button class="btn" v-bind:class="btnClassEnviar" v-bind:style="btnStyleEnviar">ENVIAR</button>
+    </div>
+
+    <!-- Instalando o Vue na página html -->
+    <script src="http://unpkg.com/vue"></script>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                titulo2: "Usando Classes do Bootstrap com Vue",
+                btnClassLimpar: {
+                    'btn-danger': true,
+                    'btn-sm': true
+                },
+                btnClassEnviar: [
+                    'btn-primary', {'btn-lg': false}
+                ],
+                //Objetos de arrays
+                btnStyleLimpar: [
+                    {"font-size": "50px"},
+                    { "text-transform": "lowercase" }
+                ],
+                btnStyleEnviar: {
+                    "font-size": "10px"
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
