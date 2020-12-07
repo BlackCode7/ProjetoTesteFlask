@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ titulo }}</h1>
+        <ul>
+            <li v-for="usuario in usuarios">{{ usuario.nome | toUpperCase('a', 'b')}}</li>
+            <p>cortando a string até 5 caracteres</p>
+            <li v-for="usuario in usuarios">{{ usuario.nome | truncate('5')}}</li>
+        </ul>
+        <form actiion="http://google.com">
+            <button type="submit" class="btn btn-primary" @click.prevent.stop="">Enviar</button>
+        </form>
+    </div>
+    <script src="http://unpkg.com/vue"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                titulo: "Vue entendendo o filters",
+                usuarios: [
+                    {nome: "Jhon Snow"},
+                    {nome: "Tyrion Lenister"},
+                    {nome: "Lady Brienne"},
+                    {nome: "Daemon Targeryen"}
+                ]
+            },
+
+            filters: {
+                toUppCase(str, param1, param2) {
+                    console.log('param1 :', param1);
+                    console.log('param2 :', param2);
+                    return str.toUpperCase();
+                },
+
+                truncate(str, length) {
+                    var output = str;
+                    // condição que verifica se a string tem o tamanho maior que 5
+                    // caso tenha ela sera cortada pela condição estabelecida
+                    if(output.length > length){
+                        output = str.substring(0, length) + '...';
+                    }
+                    return output;
+                }
+            },
+
+            methods: {
+                enviar(){
+                    alert("Send msn for North");
+                },
+            }
+        });
+    </script>
+</body>
+</html>

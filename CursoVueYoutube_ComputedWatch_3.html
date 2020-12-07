@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vue do jeito certo usando o formated / watch</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ titulo }}</h1>
+        {{ fullName }}
+        <br>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                titulo: "Vue do jeito certo usando computed or watch",
+                firstName: "",
+                lastName: "",
+                //fullName: "",
+            },
+
+            computed: {
+                fullName(){
+                    return this.firstName + ' ' + this.lastName;
+                }
+            },
+
+            watch: {
+                firstName(novo) {
+                    this.updateUser();
+                },
+            },
+
+            methods: {
+                updateUser() {
+                    console.log('Usuário atualizado!');
+                }
+            },
+        });
+
+
+    </script>
+</body>
+</html>

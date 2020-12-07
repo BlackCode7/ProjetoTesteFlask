@@ -24,7 +24,7 @@ class BancoLivro(db.Model):
 @app.route('/')
 def index():
     livros = BancoLivro.query.all()
-    return render_template("index.html", livros=livros)
+    return render_template("CursoVueYoutube_Filters.html", livros=livros)
 
 
 # Fazer o tratamento do erro neste código

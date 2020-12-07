@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vue do jeito certo usando o formated / watch</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ titulo }}</h1>
+        {{ nome }}
+        <br>
+        {{ toUpperCase }}
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                titulo: "Vue do jeito certo usando computed or watch",
+                nome: "John Snow"
+            },
+
+            computed: {
+                toUpperCase() {return this.nome.toUpperCase()}
+            },
+
+            watch: {
+                nome(novo, antigo) {
+                    console.log('Valor novo: ', novo);
+                    console.log('Valor antigo: ', antigo)
+            }
+        },
+
+        });
+
+
+    </script>
+</body>
+</html>
