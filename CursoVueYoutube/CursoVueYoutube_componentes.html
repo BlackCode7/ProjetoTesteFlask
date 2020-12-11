@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue entendendo componentes</title>
+</head>
+<body>
+    <!--
+    Componentes são usado em um código porque geralmente temos varios pedaços de códigos
+    que podemos aproveitar em outras partes das nossas telas html
+    -->
+    <div id="app2">
+        <h1>{{ titulo }}</h1>
+        <!--Aplicando as instâncias do componente criado em Vue.component({})-->
+        <menu-bar></menu-bar>
+        <menu-bar></menu-bar>
+        <menu-bar></menu-bar>
+    </div>
+    <!--Criando o template-->
+    <h3>Criação da tag template com vueJs</h3>
+    <template id="menu-template">
+        <ul>
+            <li>Item de template 1</li>
+            <li>Item de template 2</li>
+            <li>Item de template 3</li>
+        </ul>
+    </template>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        <!--Criando o componente-->
+        Vue.component('menu-bar',{
+            template:"#menu-template"
+        });
+        var app = new Vue({
+            el:"#app2",
+            data: {
+              titulo: "Entendendo o componente de vueJs",
+            },
+        });
+    </script>
+</body>
+
+</html>

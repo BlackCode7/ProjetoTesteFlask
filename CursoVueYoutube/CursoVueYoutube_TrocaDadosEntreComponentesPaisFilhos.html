@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Curso de VueJs</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+</head>
+<body>
+    <div class="container-fluid" id="app">
+        <navbar></navbar>
+        <br>
+        <menu-bar></menu-bar>
+
+    </div>
+    <!--Componente pai-->
+    <template id="nav">
+        <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+        <button class="nav-bar-toggler navbar-toggler-right" type="button" data-toggle="">Enviar
+            <span class="navbar-toggler-icon"></span>
+        </button>
+            <a class="navbar-brand" href="#">Menu</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!--Componente filho-->
+                <menu-bar></menu-bar>
+
+            </div>
+        </nav>
+    </template>
+    <!--Criando tag template com componente-->
+    <template id="menu">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disable</a>
+            </li>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Seaech">
+                <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
+            </form>
+        </ul>
+    </template>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        Vue.component('navbar',{
+            template: "#nav",
+        });
+        <!--Criando uma tag de componente Vue nmome da tag menu-bar-->
+        Vue.component('menu-bar',{
+            <!--Template criado dentro da tag do componente identificado com id-->
+            template: "#menu"
+        });
+
+        var app = new Vue({
+            el: "#app",
+            data: {
+                titulo: "Componente do Vue"
+            }
+        });
+    </script>
+</body>
+</html>
